@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from ..models import Info
+from ..models import Pokemon
 
-class InfoSerializer (serializers.ModelSerializer):
+class PokemonSerializer (serializers.ModelSerializer):
     class Meta:
-        model = Info
-        fields = ['name', 'id', 'type1', 'type2', 'height', 'weight', 'location', 'evolution_chain']
-        read_only_fields = ['id','type1', 'type2', 'height', 'weight', 'location', 'evolution_chain']
+        model = Pokemon
+        fields = ['name', 'pokedex_id', 'type1', 'type2', 'height', 'weight', 'location', 'evolution_chain']
+        read_only_fields = ['pokedex_id', 'type1', 'type2', 'height', 'weight', 'location', 'evolution_chain']
