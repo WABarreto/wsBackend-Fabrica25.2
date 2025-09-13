@@ -9,8 +9,20 @@ class Pokemon(models.Model):
     weight = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     evolution_chain = models.CharField(max_length=100)
+    abilities = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"Nome: {self.name}, ID: {self.pokedex_id}, Tipo 1: {self.type1}, Tipo 2: {self.type2}, Altura: {self.height}, Peso: {self.weight}, Localização: {self.location}, Linha evolutiva: {self.evolution_chain}"
+        return f"Nome: {self.name}, ID: {self.pokedex_id}, Tipo 1: {self.type1}, Tipo 2: {self.type2}, Altura: {self.height}, Peso: {self.weight}, Localização: {self.location}, Linha evolutiva: {self.evolution_chain}, Habilidades: {self.abilities}"
+    
+class Moves(models.Model):
+    name = models.CharField(max_length=100)
+    type = models.CharField(max_length=100)
+    category = models.CharField(max_length=100)
+    power = models.CharField(max_length=100)
+    accuracy = models.CharField(max_length=100)
+    pp = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"Nome: {self.name}, Tipo: {self.type}, Categoria: {self.category}, Poder: {self.power}, Precisão: {self.accuracy}, PP: {self.pp}"
 
 
