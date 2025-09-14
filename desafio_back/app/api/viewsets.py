@@ -6,6 +6,7 @@ from ..forms import PokemonForm
 from .serializers import PokemonSerializer
 from rest_framework.viewsets import ModelViewSet
 import requests
+
 class HomeView(TemplateView):
     template_name = "home.html"
 

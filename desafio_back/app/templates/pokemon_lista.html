@@ -3,7 +3,7 @@
 {% block title %}Lista de Pokémon - Pokédex{% endblock %}
 
 {% block content %}
-<h2 style="text-align: center; margin-bottom: 20px;">Pokémon Registrados</h2>
+<h2 style="text-align: center; margin-bottom: 20px;">Pokémons Registrados</h2>
 
 {% if pokemons %}
 <table>
@@ -23,7 +23,7 @@
             <td>{{ pokemon.pokedex_id }}</td>
             <td>{{ pokemon.type1|capfirst }}</td>
             <td>{{ pokemon.type2|capfirst }}</td>
-            <td style="display: flex; gap: 10px;">
+            <td style="display: flex; gap: 10px; justify-content: center;">
                 <!-- Botão de detalhes -->
                 <a class="button" href="{% url 'pokemon_detail' pokemon.pk %}">Ver Detalhes</a>
 
