@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Inserir Pokémon - Pokédex{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center; margin-bottom: 20px;">Inserir Pokémon</h2>
+
+<form method="POST" style="max-width: 400px; margin: 0 auto; background-color: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
+    {% csrf_token %}
+    <div style="margin-bottom: 15px;">
+        <label for="id_name"><strong>Nome do Pokémon:</strong></label><br>
+        <input type="text" name="name" id="id_name" placeholder="Ex: pikachu" required
+               style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+    </div>
+    <button type="submit"
+            style="background-color: #ef5350; color: white; padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+        Inserir
+    </button>
+</form>
+
+{% if error %}
+    <p style="color: red; text-align: center; margin-top: 15px;">
+        ⚠️ {{ error }}
+    </p>
+{% endif %}
+{% endblock %}

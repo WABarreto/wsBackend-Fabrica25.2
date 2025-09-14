@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Pokémon - Pokédex{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center; margin-bottom: 20px;">Pokémon Registrados</h2>
+
+{% if pokemons %}
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>ID</th>
+            <th>Tipo 1</th>
+            <th>Tipo 2</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pokemon in pokemons %}
+        <tr>
+            <td>{{ pokemon.name|capfirst }}</td>
+            <td>{{ pokemon.pokedex_id }}</td>
+            <td>{{ pokemon.type1|capfirst }}</td>
+            <td>{{ pokemon.type2|capfirst }}</td>
+            <td style="display: flex; gap: 10px;">
+                <!-- Botão de detalhes -->
+                <a class="button" href="{% url 'pokemon_detail' pokemon.pk %}">Ver Detalhes</a>
+
+                <!-- Botão de edição -->
+                <a class="button" href="{% url 'pokemon_update' pokemon.pk %}">Editar</a>
+
+                <!-- Botão de exclusão -->
+                <form method="POST" action="{% url 'pokemon_delete' pokemon.pk %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" onclick="return confirm('Tem certeza que deseja excluir {{ pokemon.name|capfirst }}?')"
+                            style="background-color: #d32f2f; color: white; padding: 6px 12px; border: none; border-radius: 4px; cursor: pointer;">
+                        Excluir
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p style="text-align: center;">Nenhum Pokémon registrado.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Pokémon - Pokédex{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center; margin-bottom: 20px;">Editar Pokémon</h2>
+
+<form method="POST" style="max-width: 500px; margin: 0 auto; background-color: #f9f9f9; padding: 20px; border-radius: 8px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit"
+            style="background-color: #1976d2; color: white; padding: 10px 20px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+        Salvar Alterações
+    </button>
+    <a href="{% url 'pokemon_lista' %}" style="margin-left: 10px; text-decoration: none; color: #555;">Cancelar</a>
+</form>
+{% endblock %}

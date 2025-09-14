@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from app.api.viewsets import PokemonViewSet
+from app.api.viewsets import PokemonViewSet, PokemonDetailView, HomeView, PokemonListView, PokemonDeleteView, PokemonUpdateView
 
 router = DefaultRouter()
 router.register(r'pokemon', PokemonViewSet, basename='pokemon')
@@ -25,4 +25,9 @@ router.register(r'pokemon', PokemonViewSet, basename='pokemon')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/", include(router.urls)),
+    path("pokemon/<int:pk>/", PokemonDetailView.as_view(), name="pokemon_detail"), 
+    path('pokemon/', PokemonListView.as_view(), name='pokemon_lista'),
+    path('home/', HomeView.as_view(), name='home'), 
+    path("pokemon/<int:pk>/delete/", PokemonDeleteView.as_view(), name="pokemon_delete"),
+    path("pokemon/<int:pk>/update/", PokemonUpdateView.as_view(), name="pokemon_update"),
 ]
