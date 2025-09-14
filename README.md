@@ -92,6 +92,7 @@ python manage.py runserver
 
 O projeto estará disponível em:  
 👉 [http://127.0.0.1:8000/home/](http://127.0.0.1:8000/home/) (interface web)  
+OBS: Ao pesquisar um Pokémon, à depender, é normal que haja uma certa demora para exibir seus resultados, dada a quantidade de informações que ele pode conter. A paciência é uma virtude em momentos como este.
 👉 [http://127.0.0.1:8000/api/pokemon/](http://127.0.0.1:8000/api/pokemon/) (API REST)
 
 ---
